@@ -7,9 +7,16 @@
 	"name": "workers-mongodb-demo",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-21",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
-	}
+	},
+	// 	"placement": {
+	// 	"mode": "smart",
+	// 	"hint": "enam"
+	// }
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
