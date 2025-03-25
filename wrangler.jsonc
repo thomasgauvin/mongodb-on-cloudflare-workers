@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "workers-mongodb-demo",
+	"name": "workers-mongodb-demo-with-dos-and-smart-placement",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-03-21",
 	"compatibility_flags": [
@@ -13,10 +13,27 @@
 	"observability": {
 		"enabled": true
 	},
-	// 	"placement": {
-	// 	"mode": "smart",
-	// 	"hint": "enam"
-	// }
+	"durable_objects": {
+    "bindings": [
+      {
+        "name": "MY_DURABLE_OBJECT",
+        "class_name": "MongoDBConnector"
+      }
+    ],
+
+	},
+	"migrations": [
+    {
+      "tag": "v1",
+      "new_classes": [
+        "MongoDBConnector"
+      ]
+    }
+  ],
+		"placement": {
+		"mode": "smart",
+		"hint": "enam"
+	}
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
